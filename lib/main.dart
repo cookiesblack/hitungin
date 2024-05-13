@@ -1,4 +1,4 @@
-import 'package:bebek_terminal/login.dart';
+import 'package:hitungin/myapp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
         // Add more styles as needed for different text types
       ),
-      home: const Login(),
+      home: const Myapp(),
     );
   }
 }

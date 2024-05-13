@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "bebek_terminal" "\0"
+            VALUE "FileDescription", "hitungin" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "bebek_terminal" "\0"
+            VALUE "InternalName", "hitungin" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "bebek_terminal.exe" "\0"
-            VALUE "ProductName", "bebek_terminal" "\0"
+            VALUE "OriginalFilename", "hitungin.exe" "\0"
+            VALUE "ProductName", "hitungin" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

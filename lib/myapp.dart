@@ -28,14 +28,14 @@ String getLabelById(List<Item> items, String id) {
   return 'Label not found';
 }
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class Myapp extends StatefulWidget {
+  const Myapp({Key? key}) : super(key: key);
 
   @override
-  _LoginState createState() => _LoginState();
+  _AppState createState() => _AppState();
 }
 
-class _LoginState extends State<Login> {
+class _AppState extends State<Myapp> {
   final TextEditingController petugas = TextEditingController();
   final TextEditingController tps = TextEditingController();
   final TextEditingController paslon1 = TextEditingController();
@@ -349,40 +349,6 @@ class _LoginState extends State<Login> {
             ),
           ),
         )),
-        /*
-        Positioned(
-            bottom: -30,
-            right: -10,
-            child: GestureDetector(
-              onTap: () {
-                Alert(
-                  context: context,
-                  type: AlertType.info,
-                  title: "Informasi",
-                  desc: "Pendaftaran App by @ewinrizal",
-                  style: const AlertStyle(
-                    animationType: AnimationType.fromTop,
-                    isCloseButton: false,
-                  ),
-                  buttons: [
-                    DialogButton(
-                      onPressed: () => Navigator.pop(context),
-                      width: 120,
-                      child: const Text(
-                        "Ok",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    )
-                  ],
-                ).show();
-              },
-              // child: Image.asset(
-              //   'assets/felmy.png',
-              //   width: MediaQuery.of(context).size.width + 20,
-              //   fit: BoxFit.cover,
-              // ),
-            )),
-      */
       ],
     );
   }
