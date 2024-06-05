@@ -73,30 +73,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/pinahangi.jpg
-    - assets/banner.jpg
-    - assets/bupatiwakil.jpg
-    - assets/bolsel.png
     - assets/background.png
     - assets/logo.png
-    - assets/avatar.png
-    - assets/cart.png
-    - assets/gamepad.png
-    - assets/referal.png
-    - assets/seniman.png
-    - assets/games/0.png
-    - assets/games/1.png
-    - assets/games/2.png
-    - assets/games/3.png
-    - assets/games/4.png
-    - assets/games/5.png
-    - assets/duck.png
-    - assets/comingsoon.png
-    - assets/coming-soon.png
-    - assets/referral.png
-    - assets/felmy.jpg
     - assets/pemilu.png
-    - assets/perindo.png
     - assets/kecamatan.json
     - assets/7171010.json
     - assets/7171020.json
