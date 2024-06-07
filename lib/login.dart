@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:hitungin/rekapan.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -148,19 +149,19 @@ class Login extends StatelessWidget {
                     //     SizedBox(height: 8.0),
                     //   ],
                     // )),
-                    // InkWell(
-                    //     onTap: () {
-                    //       Navigator.push(
-                    //         context,
-                    //         CupertinoPageRoute(
-                    //             builder: (context) => const Myapp()),
-                    //       );
-                    //     },
-                    //     child: const Text('Daftar',
-                    //         style: TextStyle(
-                    //           color: Colors.amber,
-                    //           decoration: TextDecoration.underline,
-                    //         )))
+                    InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => const Rekapan()),
+                          );
+                        },
+                        child: const Text('Lihat Rekapan',
+                            style: TextStyle(
+                              color: Colors.amber,
+                              decoration: TextDecoration.underline,
+                            )))
                   ],
                 ),
               ),
