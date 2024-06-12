@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:hitungin/rekapan.dart';
+import 'package:hitungin/urutan.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -149,19 +150,47 @@ class Login extends StatelessWidget {
                     //     SizedBox(height: 8.0),
                     //   ],
                     // )),
-                    InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => const Rekapan()),
-                          );
-                        },
-                        child: const Text('Lihat Rekapan',
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => const UrutanSuara()),
+                            );
+                          },
+                          child: const Text(
+                            'Lihat Perolehan',
                             style: TextStyle(
-                              color: Colors.amber,
+                              color: Colors.blue,
                               decoration: TextDecoration.underline,
-                            )))
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                            width:
+                                10), // Adjust the width as needed for the separator
+
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => const Rekapan()),
+                            );
+                          },
+                          child: const Text(
+                            'Lihat Rekapan',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
