@@ -162,33 +162,30 @@ class Login extends StatelessWidget {
                             );
                           },
                           child: const Text(
-                            'Lihat Perolehan',
+                            'Lihat Perolehan Suara',
                             style: TextStyle(
                               color: Colors.blue,
                               decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
-                        const SizedBox(
-                            width:
-                                10), // Adjust the width as needed for the separator
-
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                  builder: (context) => const Rekapan()),
-                            );
-                          },
-                          child: const Text(
-                            'Lihat Rekapan',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                        ),
+                        // const SizedBox(width: 10),
+                        // InkWell(
+                        //   onTap: () {
+                        //     Navigator.push(
+                        //       context,
+                        //       CupertinoPageRoute(
+                        //           builder: (context) => const Rekapan()),
+                        //     );
+                        //   },
+                        //   child: const Text(
+                        //     'Lihat Rekapan',
+                        //     style: TextStyle(
+                        //       color: Colors.blue,
+                        //       decoration: TextDecoration.underline,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     )
                   ],
