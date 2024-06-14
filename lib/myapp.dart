@@ -65,10 +65,10 @@ class _AppState extends State<Myapp> {
     String a = namaKecamatan;
     String b = namaKelurahan;
     String c = tps.text;
-    String d = paslon1.text;
-    String e = paslon2.text;
-    String f = paslon3.text;
-    String g = felmy.text;
+    String d = paslon1.text.isEmpty ? '0' : paslon1.text;
+    String e = paslon2.text.isEmpty ? '0' : paslon2.text;
+    String f = paslon3.text.isEmpty ? '0' : paslon3.text;
+    String g = felmy.text.isEmpty ? '0' : felmy.text;
     String h = petugas.text;
     // String g = petugas.text;
 
