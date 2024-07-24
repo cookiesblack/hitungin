@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -26,17 +27,21 @@ class Data {
 
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
-      d: json['d'],
-      e: json['e'],
-      f: json['f'],
-      g: json['g'],
+      d: parseInt(json['d']),
+      e: parseInt(json['e']),
+      f: parseInt(json['f']),
+      g: parseInt(json['g']),
     );
+  }
+
+  static int parseInt(dynamic value) {
+    return value is int ? value : 0;
   }
 }
 
 class DataFetcher {
   static const String url =
-      'https://script.google.com/macros/s/AKfycbzbhyRPcO7xytDhIJH6ytECm3YFlsmi8dO0tNOPpPg2Mv7veL0p1sh8Yo6nTKlk97Fj/exec';
+      'https://script.google.com/macros/s/AKfycbyah5VP_HE--qeK9DJsm8x2Ra4CrF7JIflfCrIksnKq6NAIWr3t_z1NsxElct3UFgC2/exec';
 
   Future<DataResponse> fetchData() async {
     final response = await http.get(Uri.parse(url));
@@ -57,12 +62,36 @@ class UrutanSuara extends StatefulWidget {
 }
 
 class _UrutanSuaraState extends State<UrutanSuara> {
-  late Future<DataResponse> futureData;
+  Data? currentData;
+  Timer? timer;
 
   @override
   void initState() {
     super.initState();
-    futureData = DataFetcher().fetchData();
+    fetchData(); // Initial data fetch
+
+    // Set up a timer to fetch data every 5 seconds
+    timer = Timer.periodic(const Duration(seconds: 5), (Timer t) {
+      fetchData();
+    });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      final response = await DataFetcher().fetchData();
+      setState(() {
+        currentData = response.data;
+      });
+    } catch (error) {
+      // Handle the error (log it, show a message, etc.)
+      debugPrint('Error fetching data: $error');
+    }
   }
 
   @override
@@ -71,15 +100,8 @@ class _UrutanSuaraState extends State<UrutanSuara> {
       appBar: AppBar(
         title: const Text('Perolehan Suara'),
       ),
-      body: FutureBuilder<DataResponse>(
-        future: futureData,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (snapshot.hasData) {
-            return SingleChildScrollView(
+      body: currentData != null
+          ? SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Container(
                 width: MediaQuery.of(context).size.width,
@@ -105,7 +127,7 @@ class _UrutanSuaraState extends State<UrutanSuara> {
                             fit: BoxFit.fill,
                           ),
                         )),
-                        DataCell(Text('${snapshot.data!.data.d}')),
+                        DataCell(Text('${currentData!.d}')),
                       ],
                     ),
                     DataRow(
@@ -118,7 +140,7 @@ class _UrutanSuaraState extends State<UrutanSuara> {
                             fit: BoxFit.fill,
                           ),
                         )),
-                        DataCell(Text('${snapshot.data!.data.e}')),
+                        DataCell(Text('${currentData!.e}')),
                       ],
                     ),
                     DataRow(
@@ -131,7 +153,7 @@ class _UrutanSuaraState extends State<UrutanSuara> {
                             fit: BoxFit.fill,
                           ),
                         )),
-                        DataCell(Text('${snapshot.data!.data.f}')),
+                        DataCell(Text('${currentData!.f}')),
                       ],
                     ),
                     DataRow(
@@ -144,18 +166,14 @@ class _UrutanSuaraState extends State<UrutanSuara> {
                             fit: BoxFit.fill,
                           ),
                         )),
-                        DataCell(Text('${snapshot.data!.data.g}')),
+                        DataCell(Text('${currentData!.g}')),
                       ],
                     ),
                   ],
                 ),
               ),
-            );
-          } else {
-            return const Center(child: Text('No data found'));
-          }
-        },
-      ),
+            )
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }
